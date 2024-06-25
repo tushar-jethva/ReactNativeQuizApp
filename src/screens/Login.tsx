@@ -23,7 +23,10 @@ const Login = ({navigation}) => {
       const user = await databaseService.getUser(email, password);
       if (user != null) {
         if (user.role == 'user') {
-          navigation.navigate('UserBottomBar', {user: user});
+          navigation.navigate('UserBottomBar', {
+            user: user,
+            navigation: navigation,
+          });
         } else {
           navigation.navigate('BottomBar', {user: user});
         }
@@ -53,11 +56,6 @@ const Login = ({navigation}) => {
       />
       <TouchableOpacity style={styles.loginButton} onPress={goToHome}>
         <Text style={styles.loginButtonText}>Login</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.loginButton}
-        onPress={() => navigation.navigate('UserBottomBar')}>
-        <Text style={styles.loginButtonText}>User</Text>
       </TouchableOpacity>
     </View>
   );

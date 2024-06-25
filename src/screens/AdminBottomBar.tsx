@@ -5,6 +5,11 @@ import HomeScreen from './UsersScreen';
 import UsersScreen from './UsersScreen';
 import QuestionsScreen from './QuestionsScreen';
 import ReportScreen from './ReportScreen';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import Octicons from 'react-native-vector-icons/Octicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Logout from './Logout';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,22 +19,50 @@ const AdminBottomBar = () => {
       <Tab.Screen
         name="Users"
         component={UsersScreen}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => {
+            return <Fontisto name={'person'} color={'black'} size={20} />;
+          },
+        }}
       />
       <Tab.Screen
         name="Questions"
         component={QuestionsScreen}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => {
+            return (
+              <FontAwesome name={'hourglass-start'} color={'black'} size={20} />
+            );
+          },
+        }}
       />
       <Tab.Screen
         name="Report"
         component={ReportScreen}
-        options={{headerShown: false}}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => {
+            return <Octicons name={'report'} color={'black'} size={20} />;
+          },
+        }}
       />
       <Tab.Screen
         name="Logout"
-        component={ReportScreen}
-        options={{headerShown: false}}
+        component={Logout}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({size, color}) => {
+            return (
+              <MaterialCommunityIcons
+                name={'login'}
+                color={'black'}
+                size={20}
+              />
+            );
+          },
+        }}
       />
     </Tab.Navigator>
   );

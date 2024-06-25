@@ -16,6 +16,7 @@ import {
 } from 'react-native-image-picker';
 import {User} from '../models/UserModel';
 import {databaseService} from '../../database/sqlDatabase';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const UserProfile = ({user}) => {
   const [userInfo, setUserInfo] = useState<User>({
@@ -27,9 +28,12 @@ const UserProfile = ({user}) => {
     role: user.role,
   });
 
+
   return (
     <View>
-      <Text style={styles.title}>Namaste {userInfo.username}</Text>
+      <View style={styles.con0}>
+        <Text style={styles.title}>Namaste {userInfo.username}</Text>
+      </View>
       <View style={styles.con2}>
         <View style={styles.con3}>
           <Image
@@ -58,6 +62,13 @@ const UserProfile = ({user}) => {
 export default UserProfile;
 
 const styles = StyleSheet.create({
+  con0: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  logOut: {
+    margin: 15,
+  },
   con2: {
     alignItems: 'center',
     marginTop: '25%',
@@ -123,9 +134,9 @@ const styles = StyleSheet.create({
   text: {
     color: 'black',
   },
-  title:{
-    color:'black',
-    fontSize:20,
-    margin:15,
-  }
+  title: {
+    color: 'black',
+    fontSize: 20,
+    margin: 15,
+  },
 });

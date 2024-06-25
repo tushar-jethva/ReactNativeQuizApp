@@ -60,6 +60,7 @@ const AddQuestions = ({navigation}) => {
   const saveQuestion = async () => {
     if (validate()) {
       await databaseService.createQuestion(questionInfo);
+      navigation.goBack();
     }
   };
 

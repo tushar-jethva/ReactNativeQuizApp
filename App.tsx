@@ -16,6 +16,9 @@ import AddQuestions from './src/screens/AddQuestions';
 import EditQuestion from './src/screens/EditQuestion';
 import AdminBottomBar from './src/screens/AdminBottomBar';
 import UserBottomBar from './src/screens/UserBottomBar';
+import Logout from './src/screens/Logout';
+import UserReportScreen from './src/screens/UserReportScreen';
+import UsersReportScreen from './src/screens/UsersReportScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -69,6 +72,16 @@ function App() {
         <Stack.Screen
           name="UserBottomBar"
           component={UserBottomBar}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Logout"
+          component={Logout}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="UsersReportScreen"
+          component={UsersReportScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
